@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Understanding Events in JavaScript</title>
+    <script src="./8. Events.js" defer></script>
+    <link href=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .app {
+            width: 400px;
+            max-width: 100%;
+            min-height: 100vh;
+            margin: auto;
+            background-color: white;
+        }
+
+        header {
+            padding: 20px;
+            background: #075e54;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0 0 15px;
+        }
+
+        #search {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        #contactList {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contact {
+            padding: 15px 20px;
+            border-bottom: 1px solid #550808;
+            cursor: pointer;
+        }
+
+        .contact:hover {
+            background-color: #434242;
+        }
+
+        .empty {
+            padding: 30px;
+            text-align: center;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-white">
+    <div class="container text-center mt-5">
+        <h1 id="displayCount"> 0 </h1>
+
+        <button class="btn btn-primary me-2 mt-3" id="increaseBtn"> Increase </button>
+        <button class="btn btn-danger mt-3" id="decreaseBtn"> Decrease </button>
+
+    </div>
+
+    <button class="btn btn-secondary m-3" id="listBtn"> View Students </button>
+
+    <ol id="studentList" class="mt-4">
+
+    </ol>
+
+
+    <div class="app bg-dark">
+        <header>
+            <h1>Contacts</h1>
+
+            <input type="text" id="search" placeholder="Search contacts...">
+            <button id="contactsBtn" class="btn btn-secondary w-100 mt-2"> Show Contacts </button>
+        </header>
+
+        <ul id="contactList" class="text-white"></ul>
+    </div>
+
+</body>
+
+</html>
