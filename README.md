@@ -1,2 +1,272 @@
-index.html
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Student Dashboard </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"
+        defer></script>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar position-sticky top-0 navbar-expand-lg navbar-light bg-light shadow-sm" style="z-index: 1020">
+        <div class="container">
+            <a class="navbar-brand" href="Dashboard.html"> Dashboard <i class="bi bi-database-fill-gear"></i></a>
+
+            <button class="navbar-toggler" type="button" data-bs-target="#Nav" data-bs-toggle="collapse"
+                aria-controls="Nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- navbar links -->
+            <div class="collapse navbar-collapse" id="Nav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a href="Dashboard.html" class="nav-link active"> Overview </a></li>
+                    <li class="nav-item"><a href="Preferences.html" class="nav-link"> Preferences</a></li>
+                    <li class="nav-item"><a href="Uploads.html" class="nav-link"> Uploads</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"> Support </a></li>
+                </ul>
+                <button class="btn btn-secondary btn-sm ms-lg-3 mt-3 mt-lg-0" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebar" aria-controls="sidebar"> Quick links
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <ul class="list-group col-4 m-3">
+        <li class="list-group-item active"> Overview</li>
+        <li class="list-group-item"> Notifications </li>
+        <li class="list-group-item"> Payments </li>
+    </ul>
+    <!-- Additions to the list group -->
+    <!-- 1. add icons -->
+    <!--2.  Add badges for the message counters -->
+
+
+    <!-- OffCanvas sidebar -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="text-muted" id="sidebarLabel"> Quick Links </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-body">
+            <a href="" class="nav-link d-block mb-3"> <i class="bi bi-facebook text-dark"></i> Facebook</a>
+            <a href="" class="nav-link d-block mb-3"><i class="bi bi-twitter-x text-dark"></i> X</a>
+            <a href="" class="nav-link d-block mb-3"> <i class="bi bi-instagram text-dark"></i> Instagram</a>
+            <a href="" class="nav-link d-block"> <i class="bi bi-whatsapp text-dark"></i> WhatsApp</a>
+
+            <div class="dropdown my-3">
+                <button class="btn btn-secondary dropdown-toggle w-50" data-bs-toggle="dropdown"> Profile </button>
+
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a href="Preferences.html" class="dropdown-item"> Settings </a></li>
+                    <li><a href="" class="dropdown-item"> Logout </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" data-bs-backdrop="static">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5> Delete Student </h5>
+                    <button class="btn-close" data-bs-dismiss="modal "></button>
+                </div>
+
+                <div class="modal-body">
+                    Are you sure?
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal"> Cancel </button>
+                    <button class="btn btn-danger" data-bs-dismiss="modal"> Delete </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="my-2 px-2 d-flex justify-content-between align-items-center">
+        <div class="container">
+            <h1><i class="bi bi-person-circle"></i> Welcome, Trust</h1>
+            <p class="text-muted fs-6"> Manage your account settings and preferences.</p>
+        </div>
+        <div class="d-flex align-items-center position-relative">
+            <p><i class="bi bi-bell"></i> Notifications</p>
+            <span class="badge bg-success position-absolute top-0 end-0"> 5 </span>
+        </div>
+    </div>
+
+    <!-- striped table -->
+    <div class="container my-4">
+        <div class="row g-4 align-items-start">
+            <div class="col-12 col-lg-8">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered shadow-lg mb-0">
+                        <thead>
+                            <tr>
+                                <th> Name </th>
+                                <th> Email </th>
+                                <th> Phone </th>
+                                <th> Website</th>
+                                <th> Status</th>
+                                <th> Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> Trust Williams </td>
+                                <td> taresy.dev@gmail.com</td>
+                                <td> +2348148544045</td>
+                                <td> https://ridelyweb.com</td>
+                                <td><span class="badge bg-success"> Active </span></td>
+                                <td> <button class="btn btn-danger" data-bs-target="#deleteModal"
+                                        data-bs-toggle="modal"> <i class="bi bi-trash"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td> Jeremiah </td>
+                                <td> jerry.dev@gmail.com</td>
+                                <td> +2348148544046</td>
+                                <td> https://fxlord.net</td>
+                                <td><span class="badge bg-danger"> Inactive </span></td>
+                                <td> <button class="btn btn-danger" data-bs-target="#deleteModal"
+                                        data-bs-toggle="modal"> <i class="bi bi-trash"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-4">
+                <div class="card shadow-lg">
+                    <div class="card-body d-flex justify-content-center align-items-center flex-column gap-3 py-5">
+                        <div class="spinner-grow" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="text-muted fst-italic"> Loading results. . .</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-5">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <p class="text-center lead"> Upload your NIN to get started</p>
+                        <label for="file" class="form-label"> Select your document</label>
+                        <input type="file" id="file" class="form-control" accept=".pdf, .docx">
+
+                        <div class="progress my-3">
+                            <div class="progress-bar progress-bar-animated progress-bar-striped bg-success"
+                                style="width: 80%;">
+                                80%
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary"> Upload </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="accordion" id="faq">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#one">
+                                How do I verify my account?
+                            </button>
+                        </h2>
+
+                        <div class="accordion-collapse collapse show" id="one" data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                <p>You can verify your account by uploading your NIN</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#two">
+                                How do I verify my account?
+                            </button>
+                        </h2>
+
+                        <div class="accordion-collapse collapse" id="two" data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                <p>You can verify your account by uploading your NIN</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#three">
+                                How do I verify my account?
+                            </button>
+                        </h2>
+
+                        <div class="accordion-collapse collapse" id="three" data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                <p>You can verify your account by uploading your NIN</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <h5 class="text-center"> Course Registration</h5>
+            <div class="col-md-5">
+                <ul class="nav nav-tabs" id="Mytab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active show" id="firstSem" data-bs-toggle="tab" data-bs-target="#firstPane">
+                            First Semester
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="secondSem" data-bs-toggle="tab" data-bs-target="#secondPane">
+                            Second Semester
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content border border-top-0 p-4" id="tabContent">
+                    <div class="tab-pane fade show" id="firstPane">
+                        <ol>
+                            <li> Maths 101</li>
+                            <li> Physics 111</li>
+                            <li>Chem 110</li>
+                            <li>GST 111</li>
+                            <li> GST 101</li>
+                            <li>CSC 112</li>
+                        </ol>
+                    </div>
+
+                    <div class="tab-pane fade" id="secondPane">
+                        <ol>
+                            <li class="text-decoration-line-through"> Maths 121</li>
+                            <li> Physics 121</li>
+                            <li>Chem 120</li>
+                            <li>GST 122</li>
+                            <li> GST 123</li>
+                            <li>CSC 122</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
