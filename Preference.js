@@ -100,6 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-
+g
   console.log('Dashboard JS loaded - Welcome Trust!');
 });
