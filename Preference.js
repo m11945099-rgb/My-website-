@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 3. NIN Upload with progress simulation
-  const fileInput = document.getElementById('file');
+  const fileInput = document.getElementById('files');
   const progressBar = document.querySelector('.progress-bar');
   const uploadBtn = document.querySelector('.btn-primary');
 
