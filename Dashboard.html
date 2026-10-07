@@ -11,11 +11,113 @@
       #loginScreen{height:100vh;display:flex;justify-content:center;align-items:center;background:#eee;position:fixed;top:0;left:0;width:100%;z-index:9999}
     </style>
 </head>
+<body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <style>
+      #loginScreen{height:100vh;display:flex;justify-content:center;align-items:center;background:#eee;position:fixed;top:0;left:0;width:100%;z-index:9999}
+    </style>
+</head>
 <body>
 
 <!-- ========== LOGIN SCREEN (FRONT) ========== -->
+<div id="loginScreen">
+  <div class="card shadow p-4" style="width:360px;">
+    <h3 class="text-center">Student Login</h3>
+    <p class="text-muted text-center small">Login to see dashboard</p>
+    <input id="loginName" class="form-control my-2" placeholder="Full Name e.g. Emeka John">
+    <input id="loginEmail" class="form-control my-2" placeholder="Email">
+    <button class="btn btn-primary w-100 mt-2" onclick="doLogin()">Login</button>
+    <p id="loginMsg" class="text-danger small mt-2"></p>
+  </div>
+</div>
 
+<!-- ========== DASHBOARD (HIDDEN UNTIL LOGIN) ========== -->
+<div id="mainContent" style="display:none;">
 
+<nav class="navbar position-sticky top-0 navbar-expand-lg navbar-light bg-light shadow-sm" style="z-index: 1020">
+  <div class="container">
+    <a class="navbar-brand" href="#">Dashboard <i class="bi bi-database-fill-gear"></i></a>
+    <div class="ms-auto">
+      <span class="me-3">Hi, <b id="navName">Trust</b></span>
+      <button class="btn btn-sm btn-outline-danger" onclick="doLogout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<div class="my-3 px-3 container">
+  <h1><i class="bi bi-person-circle"></i> Welcome, <span id="displayName">Trust</span></h1>
+  <p class="text-muted">Manage your account</p>
+</div>
+
+<div class="container my-4">
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered shadow">
+      <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td id="tableName">Trust Williams</td>
+          <td id="tableEmail">taresy.dev@gmail.com</td>
+          <td>+2348148544045</td>
+          <td><span class="badge bg-success">Active</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Keep your other sections here - Upload NIN, FAQ, Courses etc -->
+  <div class="card p-3 mt-4 shadow-sm">
+    <h5>Course Registration</h5>
+    <p>Maths 101, Physics 111, Chem 110...</p>
+  </div>
+</div>
+
+</div> <!-- end mainContent -->
+
+<script>
+// LOGIN FUNCTION
+function doLogin(){
+  let name = document.getElementById("loginName").value.trim();
+  let email = document.getElementById("loginEmail").value.trim();
+  if(name==""){ document.getElementById("loginMsg").innerText="Please enter your name"; return; }
+  
+  localStorage.setItem("studentName", name);
+  localStorage.setItem("studentEmail", email);
+  showDashboard(name, email);
+}
+
+function showDashboard(name, email){
+  document.getElementById("loginScreen").style.display="none";
+  document.getElementById("mainContent").style.display="block";
+  document.getElementById("displayName").innerText = name;
+  document.getElementById("navName").innerText = name;
+  document.getElementById("tableName").innerText = name;
+  if(email) document.getElementById("tableEmail").innerText = email;
+}
+
+function doLogout(){
+  localStorage.clear();
+  location.reload();
+}
+
+// Auto check on load - if already logged in, skip login screen
+window.addEventListener("DOMContentLoaded", ()=>{
+  let savedName = localStorage.getItem("studentName");
+  let savedEmail = localStorage.getItem("studentEmail");
+  if(savedName){
+    showDashboard(savedName, savedEmail);
+  }
+});
+</script>
+
+</body>
+</html>
 
 <!-- ========== LOGIN SCREEN (FRONT) ========== -->
 <div id="loginScreen">
